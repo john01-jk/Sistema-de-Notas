@@ -1,62 +1,117 @@
-# 50-notas
-import numpy as np
+# Sistema de Notas com Arrays (Python)
 
-# Configuração inicial
-TOTAL_ALUNOS = 50
-# Criamos a lista de nomes e inicializamos as notas com zero usando NumPy
-alunos = [f"Aluno_{i}" for i in range(1, TOTAL_ALUNOS + 1)]
-notas = np.zeros(TOTAL_ALUNOS)
+Este repositório contém dois sistemas desenvolvidos em Python para gerenciamento de notas de alunos utilizando arrays e a biblioteca NumPy.
 
-def exibir_menu():
-    print("\n" + "="*30)
-    print("      SISTEMA ESCOLAR")
-    print("="*30)
-    print("1. Ver lista de alunos e notas💯")
-    print("2. Alterar nome de um aluno🧑‍🎓")
-    print("3. Lançar/Alterar nota de um aluno💯")
-    print("4. Ver estatísticas da turma (Média/Maior/Menor)😒")
-    print("0. Sair🚪")
-    return input("Escolha uma opção: ")
+---
 
-while True:
-    opcao = exibir_menu()
+##  Tecnologias utilizadas
 
-    if opcao == "1":
-        print("\n--- ⚡ LISTA DE ALUNOS ⚡ ---")
-        for i in range(TOTAL_ALUNOS):
-            print(f"Índice {i:2} | Nome: {alunos[i]:<15} | Nota: {notas[i]:.1f}")
-    
-    elif opcao == "2":
-        try:
-            idx = int(input(f"Digite o índice do aluno (0 a {TOTAL_ALUNOS-1}): "))
-            novo_nome = input("Digite o novo nome: ")
-            print(f"Alterando {alunos[idx]} para {novo_nome}...")
-            alunos[idx] = novo_nome
-        except (ValueError, IndexError):
-            print("Erro: Índice inválido!")
+* Python 3
+* NumPy
 
-    elif opcao == "3":
-        try:
-            idx = int(input(f"Digite o índice do aluno (0 a {TOTAL_ALUNOS-1}): "))
-            nova_nota = float(input(f"Digite a nota para {alunos[idx]}: "))
-            if 0 <= nova_nota <= 10:
-                notas[idx] = nova_nota
-                print("Nota atualizada com sucesso!")
-            else:
-                print("Erro: A nota deve ser entre 0 e 10.")
-        except (ValueError, IndexError):
-            print("Erro: Entrada inválida!")
+---
 
-    elif opcao == "4":
-        print("\n--- ESTATÍSTICAS DA TURMA ---")
-        print(f"Média Geral: {notas.mean():.2f}")
-        print(f"Maior Nota:  {notas.max():.1f}")
-        print(f"Menor Nota:  {notas.min():.1f}")
-        print(f"Alunos acima da média (7.0): {np.sum(notas >= 7)}")
+##  Estrutura do Projeto
 
-    elif opcao == "0":
-        print("Saindo do sistema... Até logo🫵🫵!")
-        break
-    
-    else:
-        print("Opção inválida! Tente novamente.")
+###  `Notas Array.py`
+
+Sistema básico de gerenciamento de alunos e notas.
+
+####  Funcionalidades:
+
+* Visualizar lista de alunos e notas
+* Alterar nome de alunos
+* Lançar ou alterar notas
+* Ver estatísticas da turma:
+
+  * Média
+  * Maior nota
+  * Menor nota
+  * Quantidade de alunos acima da média
+
+####  Características:
+
+* Interface simples via terminal
+* Uso de listas e arrays NumPy
+* Ideal para iniciantes
+
+---
+
+### 2️ `Notas Funções completas em Arrays.py`
+
+Versão avançada com estrutura modular e mais funcionalidades.
+
+####  Funcionalidades:
+
+* Todas as funções do sistema básico
+* Buscar aluno por nome
+* Remover aluno com deslocamento (shift no array)
+* Visualizar sucessor e antecessor de um aluno
+* Código organizado em funções reutilizáveis
+
+####  Características:
+
+* Código modular (boas práticas)
+* Uso mais avançado de NumPy
+* Melhor organização para projetos maiores
+
+---
+
+##  Como executar o projeto
+
+### 1. Instalar dependências
+
+```bash
+pip install numpy
+```
+
+### 2. Executar os arquivos
+
+```bash
+python "Notas Array.py"
+```
+
+ou
+
+```bash
+python "Notas Funções completas em Arrays.py"
+```
+
+---
+
+##  Observações
+
+* Caso apareçam erros com acentuação no Windows, utilize:
+
+```bash
+chcp 65001
+```
+
+* Certifique-se de estar na pasta correta ao executar os arquivos.
+
+---
+
+##  Objetivo do Projeto
+
+Este projeto foi desenvolvido para praticar:
+
+* Manipulação de arrays
+* Estruturas de repetição e decisão
+* Organização de código em funções
+* Lógica de programação aplicada
+
+---
+
+##  Possíveis melhorias futuras
+
+* Interface gráfica (Tkinter ou Web)
+* Integração com banco de dados
+* Exportação de dados para arquivos (CSV/JSON)
+* Sistema de login para professores
+
+---
+
+## Autor
+
+Projeto desenvolvido para aprendizado em programação e evolução na área de Ciência da Computação.
+
